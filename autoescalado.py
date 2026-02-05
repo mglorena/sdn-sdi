@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
+# Autor: Lorena Garcia
+# Tema especialidad: SDN-SDI
 import subprocess, time, re, os, json, math
 from pathlib import Path
 
 #!/usr/bin/env python3
+# Autor: Lorena Garcia
+# Tema especialidad: SDN-SDI
 import subprocess, time, re, os, json, math
 from pathlib import Path
 
