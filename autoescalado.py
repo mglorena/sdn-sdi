@@ -4,12 +4,6 @@
 import subprocess, time, re, os, json, math
 from pathlib import Path
 
-#!/usr/bin/env python3
-# Autor: Lorena Garcia
-# Tema especialidad: SDN-SDI
-import subprocess, time, re, os, json, math
-from pathlib import Path
-
 # === Parametros para la configuración ===
 S1_NAME      = "s1"            # bridge OVS en Mininet
 PORT_NAME    = [1,2,3]         # puertos que voy a vigilar.
