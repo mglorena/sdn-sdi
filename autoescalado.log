@@ -1,0 +1,746 @@
+[0m[1mdocker_image.haproxy: Refreshing state... [id=sha256:cb3e8cf6a18ca82ce959cda4ae0344575137a64f86d95a2b449ed39424d7f8c4haproxy:alpine][0m
+[0m[1mdocker_image.nginx: Refreshing state... [id=sha256:5e7abcdd20216bbeedf1369529564ffd60f830ed3540c477938ca580b645dff5nginx:alpine][0m
+[0m[1mdocker_network.webnet: Refreshing state... [id=a3d59067b4edd5b55c9e8989154f35ee456aafb02758b5cb93786196045708cc][0m
+[0m[1mdocker_container.web[7]: Refreshing state... [id=193e603bd2d524eb0bdd866836cc361b9390d4791e7971f12a1f432edecee805][0m
+[0m[1mdocker_container.web[6]: Refreshing state... [id=222ee8cc071947e1f4a5423c404a3ebbbc10de54e39304f7084bedfd10679250][0m
+[0m[1mdocker_container.web[5]: Refreshing state... [id=f3a273ce523ffbc8ef3e70ae283e326c3fcb4084f78bf661605142431150c210][0m
+[0m[1mdocker_container.web[2]: Refreshing state... [id=be7a927baf610c8a9a0f62132005995fad3bf5eb3c3834baf7d217298b8bbb2e][0m
+[0m[1mdocker_container.web[1]: Refreshing state... [id=e77854c5aca0ead8d6b046625b2a5125387b6b1cd82744efc81f2c42647ca027][0m
+[0m[1mdocker_container.web[0]: Refreshing state... [id=80eb697b7d7deedfb3ab863401d295f33065b845befd1b4e8e59f3c96b29171f][0m
+[0m[1mdocker_container.web[3]: Refreshing state... [id=715d58f2774eda94f74d264fa11f5a521124c460bc34262e20c068b020f8325e][0m
+[0m[1mdocker_container.web[4]: Refreshing state... [id=b95a95264782fd45836e0d1b88e201ab1e90fcf58128b03d9d4dbebdfc4a6879][0m
+[0m[1mlocal_file.haproxy_cfg: Refreshing state... [id=8a704024617ea2458691297d655c428644c0b9e9][0m
+[0m[1mrandom_id.haproxy_rev: Refreshing state... [id=8m0][0m
+[0m[1mdocker_container.haproxy: Refreshing state... [id=0c6ed4a733b74b6f0ed00ceaa5d1f70f01e289307f79e954461fe669e7aa55cc][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [31m-[0m destroy[0m
+[31m-[0m/[32m+[0m destroy and then create replacement[0m
+
+Terraform will perform the following actions:
+
+[1m  # docker_container.haproxy[0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "docker_container" "haproxy" {
+      [32m+[0m[0m bridge                                      = (known after apply)
+      [33m~[0m[0m command                                     = [
+          [31m-[0m[0m "haproxy",
+          [31m-[0m[0m "-f",
+          [31m-[0m[0m "/usr/local/etc/haproxy/haproxy.cfg",
+        ] -> (known after apply)
+      [32m+[0m[0m container_logs                              = (known after apply)
+      [31m-[0m[0m cpu_shares                                  = 0 [90m-> null[0m[0m
+      [31m-[0m[0m dns                                         = [] [90m-> null[0m[0m
+      [31m-[0m[0m dns_opts                                    = [] [90m-> null[0m[0m
+      [31m-[0m[0m dns_search                                  = [] [90m-> null[0m[0m
+      [33m~[0m[0m entrypoint                                  = [
+          [31m-[0m[0m "docker-entrypoint.sh",
+        ] -> (known after apply)
+      [33m~[0m[0m env                                         = [] -> (known after apply)
+      [32m+[0m[0m exit_code                                   = (known after apply)
+      [31m-[0m[0m group_add                                   = [] [90m-> null[0m[0m
+      [33m~[0m[0m hostname                                    = "0c6ed4a733b7" -> (known after apply)
+      [33m~[0m[0m id                                          = "0c6ed4a733b74b6f0ed00ceaa5d1f70f01e289307f79e954461fe669e7aa55cc" -> (known after apply)
+      [33m~[0m[0m init                                        = false -> (known after apply)
+      [33m~[0m[0m ipc_mode                                    = "private" -> (known after apply)
+      [33m~[0m[0m log_driver                                  = "json-file" -> (known after apply)
+      [31m-[0m[0m log_opts                                    = {} [90m-> null[0m[0m
+      [31m-[0m[0m max_retry_count                             = 0 [90m-> null[0m[0m
+      [31m-[0m[0m memory                                      = 0 [90m-> null[0m[0m
+      [31m-[0m[0m memory_swap                                 = 0 [90m-> null[0m[0m
+      [33m~[0m[0m name                                        = "haproxy-f26d" [31m# forces replacement[0m[0m -> (known after apply) [31m# forces replacement[0m[0m
+      [33m~[0m[0m network_data                                = [
+          [31m-[0m[0m {
+              [31m-[0m[0m gateway                   = "172.18.0.1"
+              [31m-[0m[0m global_ipv6_prefix_length = 0
+              [31m-[0m[0m ip_address                = "172.18.0.2"
+              [31m-[0m[0m ip_prefix_length          = 16
+              [31m-[0m[0m mac_address               = "02:42:ac:12:00:02"
+              [31m-[0m[0m network_name              = "webnet"
+                [90m# (2 unchanged attributes hidden)[0m[0m
+            },
+        ] -> (known after apply)
+      [31m-[0m[0m privileged                                  = false [90m-> null[0m[0m
+      [31m-[0m[0m publish_all_ports                           = false [90m-> null[0m[0m
+      [33m~[0m[0m runtime                                     = "runc" -> (known after apply)
+      [33m~[0m[0m security_opts                               = [] -> (known after apply)
+      [33m~[0m[0m shm_size                                    = 64 -> (known after apply)
+      [33m~[0m[0m stop_signal                                 = "SIGUSR1" -> (known after apply)
+      [33m~[0m[0m stop_timeout                                = 0 -> (known after apply)
+      [31m-[0m[0m storage_opts                                = {} [90m-> null[0m[0m
+      [31m-[0m[0m sysctls                                     = {} [90m-> null[0m[0m
+      [31m-[0m[0m tmpfs                                       = {} [90m-> null[0m[0m
+      [31m-[0m[0m user                                        = "haproxy" [90m-> null[0m[0m
+      [31m-[0m[0m working_dir                                 = "/var/lib/haproxy" [90m-> null[0m[0m
+        [90m# (19 unchanged attributes hidden)[0m[0m
+
+      [33m~[0m[0m healthcheck {
+          [32m+[0m[0m attach                                      = (known after apply)
+          [32m+[0m[0m bridge                                      = (known after apply)
+          [32m+[0m[0m cgroup_parent                               = (known after apply)
+          [32m+[0m[0m cgroupns_mode                               = (known after apply)
+          [32m+[0m[0m command                                     = (known after apply)
+          [32m+[0m[0m container_logs                              = (known after apply)
+          [32m+[0m[0m container_read_refresh_timeout_milliseconds = (known after apply)
+          [32m+[0m[0m cpu_period                                  = (known after apply)
+          [32m+[0m[0m cpu_quota                                   = (known after apply)
+          [32m+[0m[0m cpu_set                                     = (known after apply)
+          [32m+[0m[0m cpu_shares                                  = (known after apply)
+          [32m+[0m[0m cpus                                        = (known after apply)
+          [32m+[0m[0m destroy_grace_seconds                       = (known after apply)
+          [32m+[0m[0m dns                                         = (known after apply)
+          [32m+[0m[0m dns_opts                                    = (known after apply)
+          [32m+[0m[0m dns_search                                  = (known after apply)
+          [32m+[0m[0m domainname                                  = (known after apply)
+          [32m+[0m[0m entrypoint                                  = (known after apply)
+          [32m+[0m[0m env                                         = (known after apply)
+          [32m+[0m[0m exit_code                                   = (known after apply)
+          [32m+[0m[0m gpus                                        = (known after apply)
+          [32m+[0m[0m group_add                                   = (known after apply)
+          [32m+[0m[0m hostname                                    = (known after apply)
+          [32m+[0m[0m id                                          = (known after apply)
+          [32m+[0m[0m image                                       = (known after apply)
+          [32m+[0m[0m init                                        = (known after apply)
+          [32m+[0m[0m ipc_mode                                    = (known after apply)
+          [32m+[0m[0m log_driver                                  = (known after apply)
+          [32m+[0m[0m log_opts                                    = (known after apply)
+          [32m+[0m[0m logs                                        = (known after apply)
+          [32m+[0m[0m max_retry_count                             = (known after apply)
+          [32m+[0m[0m memory                                      = (known after apply)
+          [32m+[0m[0m memory_swap                                 = (known after apply)
+          [32m+[0m[0m must_run                                    = (known after apply)
+          [32m+[0m[0m name                                        = (known after apply)
+          [32m+[0m[0m network_data                                = (known after apply)
+          [32m+[0m[0m network_mode                                = (known after apply)
+          [32m+[0m[0m pid_mode                                    = (known after apply)
+          [32m+[0m[0m privileged                                  = (known after apply)
+          [32m+[0m[0m publish_all_ports                           = (known after apply)
+          [32m+[0m[0m read_only                                   = (known after apply)
+          [32m+[0m[0m remove_volumes                              = (known after apply)
+          [32m+[0m[0m restart                                     = (known after apply)
+          [32m+[0m[0m rm                                          = (known after apply)
+          [32m+[0m[0m runtime                                     = (known after apply)
+          [32m+[0m[0m security_opts                               = (known after apply)
+          [32m+[0m[0m shm_size                                    = (known after apply)
+          [32m+[0m[0m start                                       = (known after apply)
+          [32m+[0m[0m stdin_open                                  = (known after apply)
+          [32m+[0m[0m stop_signal                                 = (known after apply)
+          [32m+[0m[0m stop_timeout                                = (known after apply)
+          [32m+[0m[0m storage_opts                                = (known after apply)
+          [32m+[0m[0m sysctls                                     = (known after apply)
+          [32m+[0m[0m tmpfs                                       = (known after apply)
+          [32m+[0m[0m tty                                         = (known after apply)
+          [32m+[0m[0m user                                        = (known after apply)
+          [32m+[0m[0m userns_mode                                 = (known after apply)
+          [32m+[0m[0m wait                                        = (known after apply)
+          [32m+[0m[0m wait_timeout                                = (known after apply)
+          [32m+[0m[0m working_dir                                 = (known after apply)
+        } -> (known after apply)
+
+      [33m~[0m[0m labels {
+          [32m+[0m[0m attach                                      = (known after apply)
+          [32m+[0m[0m bridge                                      = (known after apply)
+          [32m+[0m[0m cgroup_parent                               = (known after apply)
+          [32m+[0m[0m cgroupns_mode                               = (known after apply)
+          [32m+[0m[0m command                                     = (known after apply)
+          [32m+[0m[0m container_logs                              = (known after apply)
+          [32m+[0m[0m container_read_refresh_timeout_milliseconds = (known after apply)
+          [32m+[0m[0m cpu_period                                  = (known after apply)
+          [32m+[0m[0m cpu_quota                                   = (known after apply)
+          [32m+[0m[0m cpu_set                                     = (known after apply)
+          [32m+[0m[0m cpu_shares                                  = (known after apply)
+          [32m+[0m[0m cpus                                        = (known after apply)
+          [32m+[0m[0m destroy_grace_seconds                       = (known after apply)
+          [32m+[0m[0m dns                                         = (known after apply)
+          [32m+[0m[0m dns_opts                                    = (known after apply)
+          [32m+[0m[0m dns_search                                  = (known after apply)
+          [32m+[0m[0m domainname                                  = (known after apply)
+          [32m+[0m[0m entrypoint                                  = (known after apply)
+          [32m+[0m[0m env                                         = (known after apply)
+          [32m+[0m[0m exit_code                                   = (known after apply)
+          [32m+[0m[0m gpus                                        = (known after apply)
+          [32m+[0m[0m group_add                                   = (known after apply)
+          [32m+[0m[0m hostname                                    = (known after apply)
+          [32m+[0m[0m id                                          = (known after apply)
+          [32m+[0m[0m image                                       = (known after apply)
+          [32m+[0m[0m init                                        = (known after apply)
+          [32m+[0m[0m ipc_mode                                    = (known after apply)
+          [32m+[0m[0m log_driver                                  = (known after apply)
+          [32m+[0m[0m log_opts                                    = (known after apply)
+          [32m+[0m[0m logs                                        = (known after apply)
+          [32m+[0m[0m max_retry_count                             = (known after apply)
+          [32m+[0m[0m memory                                      = (known after apply)
+          [32m+[0m[0m memory_swap                                 = (known after apply)
+          [32m+[0m[0m must_run                                    = (known after apply)
+          [32m+[0m[0m name                                        = (known after apply)
+          [32m+[0m[0m network_data                                = (known after apply)
+          [32m+[0m[0m network_mode                                = (known after apply)
+          [32m+[0m[0m pid_mode                                    = (known after apply)
+          [32m+[0m[0m privileged                                  = (known after apply)
+          [32m+[0m[0m publish_all_ports                           = (known after apply)
+          [32m+[0m[0m read_only                                   = (known after apply)
+          [32m+[0m[0m remove_volumes                              = (known after apply)
+          [32m+[0m[0m restart                                     = (known after apply)
+          [32m+[0m[0m rm                                          = (known after apply)
+          [32m+[0m[0m runtime                                     = (known after apply)
+          [32m+[0m[0m security_opts                               = (known after apply)
+          [32m+[0m[0m shm_size                                    = (known after apply)
+          [32m+[0m[0m start                                       = (known after apply)
+          [32m+[0m[0m stdin_open                                  = (known after apply)
+          [32m+[0m[0m stop_signal                                 = (known after apply)
+          [32m+[0m[0m stop_timeout                                = (known after apply)
+          [32m+[0m[0m storage_opts                                = (known after apply)
+          [32m+[0m[0m sysctls                                     = (known after apply)
+          [32m+[0m[0m tmpfs                                       = (known after apply)
+          [32m+[0m[0m tty                                         = (known after apply)
+          [32m+[0m[0m user                                        = (known after apply)
+          [32m+[0m[0m userns_mode                                 = (known after apply)
+          [32m+[0m[0m wait                                        = (known after apply)
+          [32m+[0m[0m wait_timeout                                = (known after apply)
+          [32m+[0m[0m working_dir                                 = (known after apply)
+        } -> (known after apply)
+
+        [90m# (3 unchanged blocks hidden)[0m[0m
+    }
+
+[1m  # docker_container.web[7][0m will be [1m[31mdestroyed[0m
+  # (because index [7] is out of range for count)
+[0m  [31m-[0m[0m resource "docker_container" "web" {
+      [31m-[0m[0m attach                                      = false [90m-> null[0m[0m
+      [31m-[0m[0m command                                     = [
+          [31m-[0m[0m "nginx",
+          [31m-[0m[0m "-g",
+          [31m-[0m[0m "daemon off;",
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m container_read_refresh_timeout_milliseconds = 15000 [90m-> null[0m[0m
+      [31m-[0m[0m cpu_shares                                  = 0 [90m-> null[0m[0m
+      [31m-[0m[0m entrypoint                                  = [
+          [31m-[0m[0m "/docker-entrypoint.sh",
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m env                                         = [] [90m-> null[0m[0m
+      [31m-[0m[0m hostname                                    = "193e603bd2d5" [90m-> null[0m[0m
+      [31m-[0m[0m id                                          = "193e603bd2d524eb0bdd866836cc361b9390d4791e7971f12a1f432edecee805" [90m-> null[0m[0m
+      [31m-[0m[0m image                                       = "sha256:5e7abcdd20216bbeedf1369529564ffd60f830ed3540c477938ca580b645dff5" [90m-> null[0m[0m
+      [31m-[0m[0m init                                        = false [90m-> null[0m[0m
+      [31m-[0m[0m ipc_mode                                    = "private" [90m-> null[0m[0m
+      [31m-[0m[0m log_driver                                  = "json-file" [90m-> null[0m[0m
+      [31m-[0m[0m logs                                        = false [90m-> null[0m[0m
+      [31m-[0m[0m max_retry_count                             = 0 [90m-> null[0m[0m
+      [31m-[0m[0m memory                                      = 0 [90m-> null[0m[0m
+      [31m-[0m[0m memory_swap                                 = 0 [90m-> null[0m[0m
+      [31m-[0m[0m must_run                                    = true [90m-> null[0m[0m
+      [31m-[0m[0m name                                        = "web7" [90m-> null[0m[0m
+      [31m-[0m[0m network_data                                = [
+          [31m-[0m[0m {
+              [31m-[0m[0m gateway                   = "172.18.0.1"
+              [31m-[0m[0m global_ipv6_prefix_length = 0
+              [31m-[0m[0m ip_address                = "172.18.0.17"
+              [31m-[0m[0m ip_prefix_length          = 16
+              [31m-[0m[0m mac_address               = "02:42:ac:12:00:11"
+              [31m-[0m[0m network_name              = "webnet"
+                [90m# (2 unchanged attributes hidden)[0m[0m
+            },
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m network_mode                                = "bridge" [90m-> null[0m[0m
+      [31m-[0m[0m privileged                                  = false [90m-> null[0m[0m
+      [31m-[0m[0m publish_all_ports                           = false [90m-> null[0m[0m
+      [31m-[0m[0m read_only                                   = false [90m-> null[0m[0m
+      [31m-[0m[0m remove_volumes                              = true [90m-> null[0m[0m
+      [31m-[0m[0m restart                                     = "no" [90m-> null[0m[0m
+      [31m-[0m[0m rm                                          = false [90m-> null[0m[0m
+      [31m-[0m[0m runtime                                     = "runc" [90m-> null[0m[0m
+      [31m-[0m[0m security_opts                               = [] [90m-> null[0m[0m
+      [31m-[0m[0m shm_size                                    = 64 [90m-> null[0m[0m
+      [31m-[0m[0m start                                       = true [90m-> null[0m[0m
+      [31m-[0m[0m stdin_open                                  = false [90m-> null[0m[0m
+      [31m-[0m[0m stop_signal                                 = "SIGQUIT" [90m-> null[0m[0m
+      [31m-[0m[0m stop_timeout                                = 0 [90m-> null[0m[0m
+      [31m-[0m[0m tty                                         = false [90m-> null[0m[0m
+      [31m-[0m[0m wait                                        = false [90m-> null[0m[0m
+      [31m-[0m[0m wait_timeout                                = 60 [90m-> null[0m[0m
+      [31m-[0m[0m working_dir                                 = "/" [90m-> null[0m[0m
+        [90m# (6 unchanged attributes hidden)[0m[0m
+
+      [31m-[0m[0m networks_advanced {
+          [31m-[0m[0m aliases      = [] [90m-> null[0m[0m
+          [31m-[0m[0m ipv4_address = "172.18.0.17" [90m-> null[0m[0m
+          [31m-[0m[0m name         = "webnet" [90m-> null[0m[0m
+            [90m# (1 unchanged attribute hidden)[0m[0m
+        }
+
+      [31m-[0m[0m ports {
+          [31m-[0m[0m external = 8087 [90m-> null[0m[0m
+          [31m-[0m[0m internal = 80 [90m-> null[0m[0m
+          [31m-[0m[0m ip       = "0.0.0.0" [90m-> null[0m[0m
+          [31m-[0m[0m protocol = "tcp" [90m-> null[0m[0m
+        }
+    }
+
+[1m  # local_file.haproxy_cfg[0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "local_file" "haproxy_cfg" {
+      [33m~[0m[0m content              = <<-EOT [31m# forces replacement[0m[0m
+            global
+              maxconn 2048
+              daemon
+            
+            defaults
+              mode http
+              timeout connect 5s
+              timeout client  30s
+              timeout server  30s
+              option  httplog
+              option  dontlognull
+            
+            frontend fe_http
+              bind *:80
+              default_backend be_pool
+            
+            backend be_pool
+              balance roundrobin
+              server web0 172.18.0.10:80 check
+              server web1 172.18.0.11:80 check
+              server web2 172.18.0.12:80 check
+              server web3 172.18.0.13:80 check
+              server web4 172.18.0.14:80 check
+              server web5 172.18.0.15:80 check
+              server web6 172.18.0.16:80 check
+          [31m-[0m[0m   server web7 172.18.0.17:80 check
+        EOT
+      [33m~[0m[0m content_base64sha256 = "YIzcO8BKs8Ae8ivEDe8KHi7v2f7igz158embhRvo2JA=" -> (known after apply)
+      [33m~[0m[0m content_base64sha512 = "5k1NxpGwhgaYPiDj6qUdCFI1FJzLGxIN00puUVksiFsjevenSGpN2ZWmT2b90Oqua+90kcGyB0W6k1EOm9nauA==" -> (known after apply)
+      [33m~[0m[0m content_md5          = "67402d0f8971757872b806ab999fe267" -> (known after apply)
+      [33m~[0m[0m content_sha1         = "8a704024617ea2458691297d655c428644c0b9e9" -> (known after apply)
+      [33m~[0m[0m content_sha256       = "608cdc3bc04ab3c01ef22bc40def0a1e2eefd9fee2833d79f1e99b851be8d890" -> (known after apply)
+      [33m~[0m[0m content_sha512       = "e64d4dc691b08606983e20e3eaa51d085235149ccb1b120dd34a6e51592c885b237af7a7486a4dd995a64f66fdd0eaae6bef7491c1b20745ba93510e9bd9dab8" -> (known after apply)
+      [33m~[0m[0m id                   = "8a704024617ea2458691297d655c428644c0b9e9" -> (known after apply)
+        [90m# (3 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # random_id.haproxy_rev[0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "random_id" "haproxy_rev" {
+      [33m~[0m[0m b64_std     = "8m0=" -> (known after apply)
+      [33m~[0m[0m b64_url     = "8m0" -> (known after apply)
+      [33m~[0m[0m dec         = "62061" -> (known after apply)
+      [33m~[0m[0m hex         = "f26d" -> (known after apply)
+      [33m~[0m[0m id          = "8m0" -> (known after apply)
+      [33m~[0m[0m keepers     = { [31m# forces replacement[0m[0m
+          [33m~[0m[0m "cfg_hash" = "608cdc3bc04ab3c01ef22bc40def0a1e2eefd9fee2833d79f1e99b851be8d890" [33m->[0m[0m "ccfffc48373c995e6c005243b21a6edc81f5fc09105fe540546781c73270ee46"
+        }
+        [90m# (1 unchanged attribute hidden)[0m[0m
+    }
+
+[1mPlan:[0m 3 to add, 0 to change, 4 to destroy.
+[0m
+Changes to Outputs:
+  [33m~[0m[0m backend_ips  = [
+        [90m# (6 unchanged elements hidden)[0m[0m
+        "web6 -> 172.18.0.16:80",
+      [31m-[0m[0m "web7 -> 172.18.0.17:80",
+    ]
+  [33m~[0m[0m backend_urls = [
+        [90m# (6 unchanged elements hidden)[0m[0m
+        "http://localhost:8086/",
+      [31m-[0m[0m "http://localhost:8087/",
+    ]
+[0m[1mdocker_container.haproxy: Destroying... [id=0c6ed4a733b74b6f0ed00ceaa5d1f70f01e289307f79e954461fe669e7aa55cc][0m[0m
+[0m[1mdocker_container.haproxy: Destruction complete after 1s[0m
+[0m[1mrandom_id.haproxy_rev: Destroying... [id=8m0][0m[0m
+[0m[1mlocal_file.haproxy_cfg: Destroying... [id=8a704024617ea2458691297d655c428644c0b9e9][0m[0m
+[0m[1mrandom_id.haproxy_rev: Destruction complete after 0s[0m
+[0m[1mlocal_file.haproxy_cfg: Destruction complete after 0s[0m
+[0m[1mdocker_container.web[7]: Destroying... [id=193e603bd2d524eb0bdd866836cc361b9390d4791e7971f12a1f432edecee805][0m[0m
+[0m[1mdocker_container.web[7]: Destruction complete after 0s[0m
+[0m[1mrandom_id.haproxy_rev: Creating...[0m[0m
+[0m[1mrandom_id.haproxy_rev: Creation complete after 0s [id=45E][0m
+[0m[1mlocal_file.haproxy_cfg: Creating...[0m[0m
+[0m[1mlocal_file.haproxy_cfg: Creation complete after 0s [id=b34d1b1718c1981191ebe49408b6dfb4a4d65b58][0m
+[0m[1mdocker_container.haproxy: Creating...[0m[0m
+[0m[1mdocker_container.haproxy: Creation complete after 0s [id=fbc8fcc1fe35d49bdc4c8fa8778348f0258b80564d8ac0d775a4bcb9031ebdfd][0m
+[0m[1m[32m
+Apply complete! Resources: 3 added, 0 changed, 4 destroyed.
+[0m[0m[1m[32m
+Outputs:
+
+[0mbackend_ips = [
+  "web0 -> 172.18.0.10:80",
+  "web1 -> 172.18.0.11:80",
+  "web2 -> 172.18.0.12:80",
+  "web3 -> 172.18.0.13:80",
+  "web4 -> 172.18.0.14:80",
+  "web5 -> 172.18.0.15:80",
+  "web6 -> 172.18.0.16:80",
+]
+backend_urls = [
+  "http://localhost:8080/",
+  "http://localhost:8081/",
+  "http://localhost:8082/",
+  "http://localhost:8083/",
+  "http://localhost:8084/",
+  "http://localhost:8085/",
+  "http://localhost:8086/",
+]
+vip_url = "http://localhost:8090/"
+[0m[1mdocker_network.webnet: Refreshing state... [id=a3d59067b4edd5b55c9e8989154f35ee456aafb02758b5cb93786196045708cc][0m
+[0m[1mdocker_image.nginx: Refreshing state... [id=sha256:5e7abcdd20216bbeedf1369529564ffd60f830ed3540c477938ca580b645dff5nginx:alpine][0m
+[0m[1mdocker_image.haproxy: Refreshing state... [id=sha256:cb3e8cf6a18ca82ce959cda4ae0344575137a64f86d95a2b449ed39424d7f8c4haproxy:alpine][0m
+[0m[1mdocker_container.web[6]: Refreshing state... [id=222ee8cc071947e1f4a5423c404a3ebbbc10de54e39304f7084bedfd10679250][0m
+[0m[1mdocker_container.web[5]: Refreshing state... [id=f3a273ce523ffbc8ef3e70ae283e326c3fcb4084f78bf661605142431150c210][0m
+[0m[1mdocker_container.web[3]: Refreshing state... [id=715d58f2774eda94f74d264fa11f5a521124c460bc34262e20c068b020f8325e][0m
+[0m[1mdocker_container.web[4]: Refreshing state... [id=b95a95264782fd45836e0d1b88e201ab1e90fcf58128b03d9d4dbebdfc4a6879][0m
+[0m[1mdocker_container.web[0]: Refreshing state... [id=80eb697b7d7deedfb3ab863401d295f33065b845befd1b4e8e59f3c96b29171f][0m
+[0m[1mdocker_container.web[2]: Refreshing state... [id=be7a927baf610c8a9a0f62132005995fad3bf5eb3c3834baf7d217298b8bbb2e][0m
+[0m[1mdocker_container.web[1]: Refreshing state... [id=e77854c5aca0ead8d6b046625b2a5125387b6b1cd82744efc81f2c42647ca027][0m
+[0m[1mrandom_id.haproxy_rev: Refreshing state... [id=45E][0m
+[0m[1mlocal_file.haproxy_cfg: Refreshing state... [id=b34d1b1718c1981191ebe49408b6dfb4a4d65b58][0m
+[0m[1mdocker_container.haproxy: Refreshing state... [id=fbc8fcc1fe35d49bdc4c8fa8778348f0258b80564d8ac0d775a4bcb9031ebdfd][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create[0m
+[31m-[0m/[32m+[0m destroy and then create replacement[0m
+
+Terraform will perform the following actions:
+
+[1m  # docker_container.haproxy[0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "docker_container" "haproxy" {
+      [32m+[0m[0m bridge                                      = (known after apply)
+      [33m~[0m[0m command                                     = [
+          [31m-[0m[0m "haproxy",
+          [31m-[0m[0m "-f",
+          [31m-[0m[0m "/usr/local/etc/haproxy/haproxy.cfg",
+        ] -> (known after apply)
+      [32m+[0m[0m container_logs                              = (known after apply)
+      [31m-[0m[0m cpu_shares                                  = 0 [90m-> null[0m[0m
+      [31m-[0m[0m dns                                         = [] [90m-> null[0m[0m
+      [31m-[0m[0m dns_opts                                    = [] [90m-> null[0m[0m
+      [31m-[0m[0m dns_search                                  = [] [90m-> null[0m[0m
+      [33m~[0m[0m entrypoint                                  = [
+          [31m-[0m[0m "docker-entrypoint.sh",
+        ] -> (known after apply)
+      [33m~[0m[0m env                                         = [] -> (known after apply)
+      [32m+[0m[0m exit_code                                   = (known after apply)
+      [31m-[0m[0m group_add                                   = [] [90m-> null[0m[0m
+      [33m~[0m[0m hostname                                    = "fbc8fcc1fe35" -> (known after apply)
+      [33m~[0m[0m id                                          = "fbc8fcc1fe35d49bdc4c8fa8778348f0258b80564d8ac0d775a4bcb9031ebdfd" -> (known after apply)
+      [33m~[0m[0m init                                        = false -> (known after apply)
+      [33m~[0m[0m ipc_mode                                    = "private" -> (known after apply)
+      [33m~[0m[0m log_driver                                  = "json-file" -> (known after apply)
+      [31m-[0m[0m log_opts                                    = {} [90m-> null[0m[0m
+      [31m-[0m[0m max_retry_count                             = 0 [90m-> null[0m[0m
+      [31m-[0m[0m memory                                      = 0 [90m-> null[0m[0m
+      [31m-[0m[0m memory_swap                                 = 0 [90m-> null[0m[0m
+      [33m~[0m[0m name                                        = "haproxy-e391" [31m# forces replacement[0m[0m -> (known after apply) [31m# forces replacement[0m[0m
+      [33m~[0m[0m network_data                                = [
+          [31m-[0m[0m {
+              [31m-[0m[0m gateway                   = "172.18.0.1"
+              [31m-[0m[0m global_ipv6_prefix_length = 0
+              [31m-[0m[0m ip_address                = "172.18.0.2"
+              [31m-[0m[0m ip_prefix_length          = 16
+              [31m-[0m[0m mac_address               = "02:42:ac:12:00:02"
+              [31m-[0m[0m network_name              = "webnet"
+                [90m# (2 unchanged attributes hidden)[0m[0m
+            },
+        ] -> (known after apply)
+      [31m-[0m[0m privileged                                  = false [90m-> null[0m[0m
+      [31m-[0m[0m publish_all_ports                           = false [90m-> null[0m[0m
+      [33m~[0m[0m runtime                                     = "runc" -> (known after apply)
+      [33m~[0m[0m security_opts                               = [] -> (known after apply)
+      [33m~[0m[0m shm_size                                    = 64 -> (known after apply)
+      [33m~[0m[0m stop_signal                                 = "SIGUSR1" -> (known after apply)
+      [33m~[0m[0m stop_timeout                                = 0 -> (known after apply)
+      [31m-[0m[0m storage_opts                                = {} [90m-> null[0m[0m
+      [31m-[0m[0m sysctls                                     = {} [90m-> null[0m[0m
+      [31m-[0m[0m tmpfs                                       = {} [90m-> null[0m[0m
+      [31m-[0m[0m user                                        = "haproxy" [90m-> null[0m[0m
+      [31m-[0m[0m working_dir                                 = "/var/lib/haproxy" [90m-> null[0m[0m
+        [90m# (19 unchanged attributes hidden)[0m[0m
+
+      [33m~[0m[0m healthcheck {
+          [32m+[0m[0m attach                                      = (known after apply)
+          [32m+[0m[0m bridge                                      = (known after apply)
+          [32m+[0m[0m cgroup_parent                               = (known after apply)
+          [32m+[0m[0m cgroupns_mode                               = (known after apply)
+          [32m+[0m[0m command                                     = (known after apply)
+          [32m+[0m[0m container_logs                              = (known after apply)
+          [32m+[0m[0m container_read_refresh_timeout_milliseconds = (known after apply)
+          [32m+[0m[0m cpu_period                                  = (known after apply)
+          [32m+[0m[0m cpu_quota                                   = (known after apply)
+          [32m+[0m[0m cpu_set                                     = (known after apply)
+          [32m+[0m[0m cpu_shares                                  = (known after apply)
+          [32m+[0m[0m cpus                                        = (known after apply)
+          [32m+[0m[0m destroy_grace_seconds                       = (known after apply)
+          [32m+[0m[0m dns                                         = (known after apply)
+          [32m+[0m[0m dns_opts                                    = (known after apply)
+          [32m+[0m[0m dns_search                                  = (known after apply)
+          [32m+[0m[0m domainname                                  = (known after apply)
+          [32m+[0m[0m entrypoint                                  = (known after apply)
+          [32m+[0m[0m env                                         = (known after apply)
+          [32m+[0m[0m exit_code                                   = (known after apply)
+          [32m+[0m[0m gpus                                        = (known after apply)
+          [32m+[0m[0m group_add                                   = (known after apply)
+          [32m+[0m[0m hostname                                    = (known after apply)
+          [32m+[0m[0m id                                          = (known after apply)
+          [32m+[0m[0m image                                       = (known after apply)
+          [32m+[0m[0m init                                        = (known after apply)
+          [32m+[0m[0m ipc_mode                                    = (known after apply)
+          [32m+[0m[0m log_driver                                  = (known after apply)
+          [32m+[0m[0m log_opts                                    = (known after apply)
+          [32m+[0m[0m logs                                        = (known after apply)
+          [32m+[0m[0m max_retry_count                             = (known after apply)
+          [32m+[0m[0m memory                                      = (known after apply)
+          [32m+[0m[0m memory_swap                                 = (known after apply)
+          [32m+[0m[0m must_run                                    = (known after apply)
+          [32m+[0m[0m name                                        = (known after apply)
+          [32m+[0m[0m network_data                                = (known after apply)
+          [32m+[0m[0m network_mode                                = (known after apply)
+          [32m+[0m[0m pid_mode                                    = (known after apply)
+          [32m+[0m[0m privileged                                  = (known after apply)
+          [32m+[0m[0m publish_all_ports                           = (known after apply)
+          [32m+[0m[0m read_only                                   = (known after apply)
+          [32m+[0m[0m remove_volumes                              = (known after apply)
+          [32m+[0m[0m restart                                     = (known after apply)
+          [32m+[0m[0m rm                                          = (known after apply)
+          [32m+[0m[0m runtime                                     = (known after apply)
+          [32m+[0m[0m security_opts                               = (known after apply)
+          [32m+[0m[0m shm_size                                    = (known after apply)
+          [32m+[0m[0m start                                       = (known after apply)
+          [32m+[0m[0m stdin_open                                  = (known after apply)
+          [32m+[0m[0m stop_signal                                 = (known after apply)
+          [32m+[0m[0m stop_timeout                                = (known after apply)
+          [32m+[0m[0m storage_opts                                = (known after apply)
+          [32m+[0m[0m sysctls                                     = (known after apply)
+          [32m+[0m[0m tmpfs                                       = (known after apply)
+          [32m+[0m[0m tty                                         = (known after apply)
+          [32m+[0m[0m user                                        = (known after apply)
+          [32m+[0m[0m userns_mode                                 = (known after apply)
+          [32m+[0m[0m wait                                        = (known after apply)
+          [32m+[0m[0m wait_timeout                                = (known after apply)
+          [32m+[0m[0m working_dir                                 = (known after apply)
+        } -> (known after apply)
+
+      [33m~[0m[0m labels {
+          [32m+[0m[0m attach                                      = (known after apply)
+          [32m+[0m[0m bridge                                      = (known after apply)
+          [32m+[0m[0m cgroup_parent                               = (known after apply)
+          [32m+[0m[0m cgroupns_mode                               = (known after apply)
+          [32m+[0m[0m command                                     = (known after apply)
+          [32m+[0m[0m container_logs                              = (known after apply)
+          [32m+[0m[0m container_read_refresh_timeout_milliseconds = (known after apply)
+          [32m+[0m[0m cpu_period                                  = (known after apply)
+          [32m+[0m[0m cpu_quota                                   = (known after apply)
+          [32m+[0m[0m cpu_set                                     = (known after apply)
+          [32m+[0m[0m cpu_shares                                  = (known after apply)
+          [32m+[0m[0m cpus                                        = (known after apply)
+          [32m+[0m[0m destroy_grace_seconds                       = (known after apply)
+          [32m+[0m[0m dns                                         = (known after apply)
+          [32m+[0m[0m dns_opts                                    = (known after apply)
+          [32m+[0m[0m dns_search                                  = (known after apply)
+          [32m+[0m[0m domainname                                  = (known after apply)
+          [32m+[0m[0m entrypoint                                  = (known after apply)
+          [32m+[0m[0m env                                         = (known after apply)
+          [32m+[0m[0m exit_code                                   = (known after apply)
+          [32m+[0m[0m gpus                                        = (known after apply)
+          [32m+[0m[0m group_add                                   = (known after apply)
+          [32m+[0m[0m hostname                                    = (known after apply)
+          [32m+[0m[0m id                                          = (known after apply)
+          [32m+[0m[0m image                                       = (known after apply)
+          [32m+[0m[0m init                                        = (known after apply)
+          [32m+[0m[0m ipc_mode                                    = (known after apply)
+          [32m+[0m[0m log_driver                                  = (known after apply)
+          [32m+[0m[0m log_opts                                    = (known after apply)
+          [32m+[0m[0m logs                                        = (known after apply)
+          [32m+[0m[0m max_retry_count                             = (known after apply)
+          [32m+[0m[0m memory                                      = (known after apply)
+          [32m+[0m[0m memory_swap                                 = (known after apply)
+          [32m+[0m[0m must_run                                    = (known after apply)
+          [32m+[0m[0m name                                        = (known after apply)
+          [32m+[0m[0m network_data                                = (known after apply)
+          [32m+[0m[0m network_mode                                = (known after apply)
+          [32m+[0m[0m pid_mode                                    = (known after apply)
+          [32m+[0m[0m privileged                                  = (known after apply)
+          [32m+[0m[0m publish_all_ports                           = (known after apply)
+          [32m+[0m[0m read_only                                   = (known after apply)
+          [32m+[0m[0m remove_volumes                              = (known after apply)
+          [32m+[0m[0m restart                                     = (known after apply)
+          [32m+[0m[0m rm                                          = (known after apply)
+          [32m+[0m[0m runtime                                     = (known after apply)
+          [32m+[0m[0m security_opts                               = (known after apply)
+          [32m+[0m[0m shm_size                                    = (known after apply)
+          [32m+[0m[0m start                                       = (known after apply)
+          [32m+[0m[0m stdin_open                                  = (known after apply)
+          [32m+[0m[0m stop_signal                                 = (known after apply)
+          [32m+[0m[0m stop_timeout                                = (known after apply)
+          [32m+[0m[0m storage_opts                                = (known after apply)
+          [32m+[0m[0m sysctls                                     = (known after apply)
+          [32m+[0m[0m tmpfs                                       = (known after apply)
+          [32m+[0m[0m tty                                         = (known after apply)
+          [32m+[0m[0m user                                        = (known after apply)
+          [32m+[0m[0m userns_mode                                 = (known after apply)
+          [32m+[0m[0m wait                                        = (known after apply)
+          [32m+[0m[0m wait_timeout                                = (known after apply)
+          [32m+[0m[0m working_dir                                 = (known after apply)
+        } -> (known after apply)
+
+        [90m# (3 unchanged blocks hidden)[0m[0m
+    }
+
+[1m  # docker_container.web[7][0m will be created
+[0m  [32m+[0m[0m resource "docker_container" "web" {
+      [32m+[0m[0m attach                                      = false
+      [32m+[0m[0m bridge                                      = (known after apply)
+      [32m+[0m[0m command                                     = (known after apply)
+      [32m+[0m[0m container_logs                              = (known after apply)
+      [32m+[0m[0m container_read_refresh_timeout_milliseconds = 15000
+      [32m+[0m[0m entrypoint                                  = (known after apply)
+      [32m+[0m[0m env                                         = (known after apply)
+      [32m+[0m[0m exit_code                                   = (known after apply)
+      [32m+[0m[0m hostname                                    = (known after apply)
+      [32m+[0m[0m id                                          = (known after apply)
+      [32m+[0m[0m image                                       = "sha256:5e7abcdd20216bbeedf1369529564ffd60f830ed3540c477938ca580b645dff5"
+      [32m+[0m[0m init                                        = (known after apply)
+      [32m+[0m[0m ipc_mode                                    = (known after apply)
+      [32m+[0m[0m log_driver                                  = (known after apply)
+      [32m+[0m[0m logs                                        = false
+      [32m+[0m[0m must_run                                    = true
+      [32m+[0m[0m name                                        = "web7"
+      [32m+[0m[0m network_data                                = (known after apply)
+      [32m+[0m[0m network_mode                                = "bridge"
+      [32m+[0m[0m read_only                                   = false
+      [32m+[0m[0m remove_volumes                              = true
+      [32m+[0m[0m restart                                     = "no"
+      [32m+[0m[0m rm                                          = false
+      [32m+[0m[0m runtime                                     = (known after apply)
+      [32m+[0m[0m security_opts                               = (known after apply)
+      [32m+[0m[0m shm_size                                    = (known after apply)
+      [32m+[0m[0m start                                       = true
+      [32m+[0m[0m stdin_open                                  = false
+      [32m+[0m[0m stop_signal                                 = (known after apply)
+      [32m+[0m[0m stop_timeout                                = (known after apply)
+      [32m+[0m[0m tty                                         = false
+      [32m+[0m[0m wait                                        = false
+      [32m+[0m[0m wait_timeout                                = 60
+
+      [32m+[0m[0m healthcheck (known after apply)
+
+      [32m+[0m[0m labels (known after apply)
+
+      [32m+[0m[0m networks_advanced {
+          [32m+[0m[0m aliases      = []
+          [32m+[0m[0m ipv4_address = "172.18.0.17"
+          [32m+[0m[0m name         = "webnet"
+            [90m# (1 unchanged attribute hidden)[0m[0m
+        }
+
+      [32m+[0m[0m ports {
+          [32m+[0m[0m external = 8087
+          [32m+[0m[0m internal = 80
+          [32m+[0m[0m ip       = "0.0.0.0"
+          [32m+[0m[0m protocol = "tcp"
+        }
+    }
+
+[1m  # local_file.haproxy_cfg[0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "local_file" "haproxy_cfg" {
+      [33m~[0m[0m content              = <<-EOT [31m# forces replacement[0m[0m
+            global
+              maxconn 2048
+              daemon
+            
+            defaults
+              mode http
+              timeout connect 5s
+              timeout client  30s
+              timeout server  30s
+              option  httplog
+              option  dontlognull
+            
+            frontend fe_http
+              bind *:80
+              default_backend be_pool
+            
+            backend be_pool
+              balance roundrobin
+              server web0 172.18.0.10:80 check
+              server web1 172.18.0.11:80 check
+              server web2 172.18.0.12:80 check
+              server web3 172.18.0.13:80 check
+              server web4 172.18.0.14:80 check
+              server web5 172.18.0.15:80 check
+              server web6 172.18.0.16:80 check
+        EOT -> (known after apply) [31m# forces replacement[0m[0m
+      [33m~[0m[0m content_base64sha256 = "zP/8SDc8mV5sAFJDshpu3IH1/AkQX+VAVGeBxzJw7kY=" -> (known after apply)
+      [33m~[0m[0m content_base64sha512 = "r0mdCTuQec8Vz6BL9Hugy/u8VFGWosO1RbfgUqCn3dmcqBbBXRt350XZQzSqGGwjTIetssxwd8fADEkTMFN3Xw==" -> (known after apply)
+      [33m~[0m[0m content_md5          = "4befb15e87fdc1e2e4f6150ab1e59212" -> (known after apply)
+      [33m~[0m[0m content_sha1         = "b34d1b1718c1981191ebe49408b6dfb4a4d65b58" -> (known after apply)
+      [33m~[0m[0m content_sha256       = "ccfffc48373c995e6c005243b21a6edc81f5fc09105fe540546781c73270ee46" -> (known after apply)
+      [33m~[0m[0m content_sha512       = "af499d093b9079cf15cfa04bf47ba0cbfbbc545196a2c3b545b7e052a0a7ddd99ca816c15d1b77e745d94334aa186c234c87adb2cc7077c7c00c49133053775f" -> (known after apply)
+      [33m~[0m[0m id                   = "b34d1b1718c1981191ebe49408b6dfb4a4d65b58" -> (known after apply)
+        [90m# (3 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # random_id.haproxy_rev[0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "random_id" "haproxy_rev" {
+      [33m~[0m[0m b64_std     = "45E=" -> (known after apply)
+      [33m~[0m[0m b64_url     = "45E" -> (known after apply)
+      [33m~[0m[0m dec         = "58257" -> (known after apply)
+      [33m~[0m[0m hex         = "e391" -> (known after apply)
+      [33m~[0m[0m id          = "45E" -> (known after apply)
+      [33m~[0m[0m keepers     = { [31m# forces replacement[0m[0m
+          [33m~[0m[0m "cfg_hash" = "ccfffc48373c995e6c005243b21a6edc81f5fc09105fe540546781c73270ee46" -> (known after apply)
+        }
+        [90m# (1 unchanged attribute hidden)[0m[0m
+    }
+
+[1mPlan:[0m 4 to add, 0 to change, 3 to destroy.
+[0m
+Changes to Outputs:
+  [33m~[0m[0m backend_ips  = [
+        [90m# (6 unchanged elements hidden)[0m[0m
+        "web6 -> 172.18.0.16:80",
+      [32m+[0m[0m (known after apply),
+    ]
+  [33m~[0m[0m backend_urls = [
+        [90m# (6 unchanged elements hidden)[0m[0m
+        "http://localhost:8086/",
+      [32m+[0m[0m "http://localhost:8087/",
+    ]
+[0m[1mdocker_container.haproxy: Destroying... [id=fbc8fcc1fe35d49bdc4c8fa8778348f0258b80564d8ac0d775a4bcb9031ebdfd][0m[0m
+[0m[1mdocker_container.haproxy: Destruction complete after 0s[0m
+[0m[1mlocal_file.haproxy_cfg: Destroying... [id=b34d1b1718c1981191ebe49408b6dfb4a4d65b58][0m[0m
+[0m[1mrandom_id.haproxy_rev: Destroying... [id=45E][0m[0m
+[0m[1mlocal_file.haproxy_cfg: Destruction complete after 0s[0m
+[0m[1mrandom_id.haproxy_rev: Destruction complete after 0s[0m
+[0m[1mdocker_container.web[7]: Creating...[0m[0m
+[0m[1mdocker_container.web[7]: Creation complete after 1s [id=0281841d24befe52735f928752681443fe82a1ad0a1788d8558158bd5e23f69d][0m
+[0m[1mrandom_id.haproxy_rev: Creating...[0m[0m
+[0m[1mrandom_id.haproxy_rev: Creation complete after 0s [id=e4U][0m
+[0m[1mlocal_file.haproxy_cfg: Creating...[0m[0m
+[0m[1mlocal_file.haproxy_cfg: Creation complete after 0s [id=8a704024617ea2458691297d655c428644c0b9e9][0m
+[0m[1mdocker_container.haproxy: Creating...[0m[0m
+[0m[1mdocker_container.haproxy: Creation complete after 0s [id=388cdf6689c216919bc28b2ef7aebc3f716c4628023ba8f438d31048c6c29579][0m
+[0m[1m[32m
+Apply complete! Resources: 4 added, 0 changed, 3 destroyed.
+[0m[0m[1m[32m
+Outputs:
+
+[0mbackend_ips = [
+  "web0 -> 172.18.0.10:80",
+  "web1 -> 172.18.0.11:80",
+  "web2 -> 172.18.0.12:80",
+  "web3 -> 172.18.0.13:80",
+  "web4 -> 172.18.0.14:80",
+  "web5 -> 172.18.0.15:80",
+  "web6 -> 172.18.0.16:80",
+  "web7 -> 172.18.0.17:80",
+]
+backend_urls = [
+  "http://localhost:8080/",
+  "http://localhost:8081/",
+  "http://localhost:8082/",
+  "http://localhost:8083/",
+  "http://localhost:8084/",
+  "http://localhost:8085/",
+  "http://localhost:8086/",
+  "http://localhost:8087/",
+]
+vip_url = "http://localhost:8090/"

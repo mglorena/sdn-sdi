@@ -1,0 +1,21 @@
+global
+  maxconn 2048
+  daemon
+
+defaults
+  mode http
+  timeout connect 5s
+  timeout client  30s
+  timeout server  30s
+  option  httplog
+  option  dontlognull
+
+frontend fe_http
+  bind *:80
+  default_backend be_pool
+
+backend be_pool
+  balance roundrobin
+%{ for b in backends ~}
+  server ${b.name} ${b.ip}:${b.port} check
+%{ endfor ~}
