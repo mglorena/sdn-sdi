@@ -2,138 +2,101 @@
 
 ## Descripción
 
-Este repositorio contiene el código fuente desarrollado como parte del Trabajo Final de Especialización, cuyo objetivo es implementar y validar una arquitectura de **Balanceo de carga utilizando Infraestructura Definida por Software (Software-Defined Infrastructure - SDI)** en entornos virtualizados.
+Este repositorio contiene el código fuente desarrollado para el Trabajo Final de Especialización:
 
-La propuesta integra tecnologías de **Redes Definidas por Software (SDN)** e **Infraestructura como Código (IaC)** para demostrar un mecanismo de autoescalado capaz de aprovisionar y eliminar servidores de manera automática según la carga detectada en la infraestructura.
+**"Balanceo de Carga utilizando Infraestrutura definida por Software"**
 
-La implementación corresponde a una **prueba de concepto (Proof of Concept - PoC)** orientada a validar el funcionamiento de la arquitectura propuesta, sin pretender reemplazar soluciones comerciales de producción.
+El proyecto presenta una prueba de concepto (Proof of Concept - PoC) que integra tecnologías de Redes Definidas por Software (SDN) e Infraestructura como Código (IaC) para automatizar el escalado horizontal de servidores web en función de la carga de la red.
 
----
-
-# Objetivos
-
-El proyecto tiene como objetivo principal desarrollar una arquitectura capaz de:
-
-* Centralizar el control de la red mediante un controlador SDN.
-* Monitorear el estado del tráfico de red.
-* Detectar condiciones de carga predefinidas.
-* Aprovisionar automáticamente nuevos servidores utilizando Infraestructura como Código.
-* Actualizar dinámicamente la configuración del balanceador de carga.
-* Liberar recursos cuando la demanda disminuye.
+La solución combina un controlador SDN basado en **Ryu**, una red emulada mediante **Mininet/Open vSwitch**, el aprovisionamiento automático mediante **Terraform** y un balanceador de carga **HAProxy**.
 
 ---
 
-# Arquitectura
+## Objetivos
 
-La solución está compuesta por los siguientes componentes:
+El objetivo principal es demostrar la factibilidad de automatizar el balanceo de carga mediante una arquitectura SDI capaz de:
 
-* **Ryu SDN Controller**
-
-  * Implementa la lógica de monitoreo y control de la red.
-  * Detecta eventos asociados a la carga de tráfico.
-  * Coordina el proceso de escalado.
-
-* **Mininet**
-
-  * Emula la infraestructura de red utilizada durante las pruebas.
-  * Implementa la topología SDN compatible con OpenFlow.
-
-* **Open vSwitch (OVS)**
-
-  * Actúa como switch OpenFlow administrado por Ryu.
-
-* **Terraform**
-
-  * Automatiza el aprovisionamiento y eliminación de servidores.
-  * Implementa el enfoque de Infraestructura como Código (IaC).
-
-* **HAProxy**
-
-  * Funciona como balanceador de carga.
-  * Actualiza automáticamente los servidores backend disponibles.
-
-* **Servidores Web**
-
-  * Recursos que son incorporados o retirados dinámicamente durante el proceso de autoescalado.
+- Detectar incrementos de carga sobre la infraestructura.
+- Aprovisionar nuevos servidores automáticamente.
+- Incorporar los nuevos servidores al balanceador de carga.
+- Eliminar servidores cuando la demanda disminuye.
+- Reducir la intervención manual durante el proceso de escalado.
 
 ---
 
-# Flujo de funcionamiento
+## Tecnologías utilizadas
 
-1. Se genera tráfico sobre la red emulada.
-2. El controlador Ryu monitorea las condiciones de carga.
-3. Cuando se supera el umbral configurado mediante un script de autoescalado se:
-
-   * se ejecuta Terraform;
-   * se aprovisiona un nuevo servidor;
-   * se actualiza automáticamente la configuración de HAProxy.
-4. Cuando la carga disminuye por debajo del umbral inferior:
-
-   * se elimina la capacidad excedente;
-   * HAProxy actualiza nuevamente la lista de servidores disponibles.
+- Python 3
+- Ryu SDN Framework
+- OpenFlow 1.3
+- Open vSwitch
+- Mininet
+- Terraform
+- HAProxy
+- Linux
 
 ---
 
-# Tecnologías utilizadas
+## Estructura del repositorio
 
-* Python
-* Ryu SDN Framework
-* OpenFlow
-* Open vSwitch
-* Mininet
-* Terraform
-* HAProxy
-* Linux
-
----
-
-# Estructura general del proyecto
-
-```text
-/
-├── ryu/                # Aplicaciones del controlador SDN
-├── terraform/          # Infraestructura como Código
-├── mininet/            # Topologías de prueba
-├── haproxy/            # Configuración del balanceador
-├── scripts/            # Automatización y utilidades
-├── docs/               # Documentación adicional
+```
+.
+├── tf-web/                # Configuración Terraform para el aprovisionamiento
+├── autoescalado.py        # Primera implementación del mecanismo de autoescalado
+├── autoescale.py          # Implementación principal del autoescalado
+├── ovs-ryu.py             # Aplicación del controlador SDN (Ryu)
 └── README.md
 ```
 
-*(La estructura puede variar según la organización final del repositorio.)*
+---
+
+## Funcionamiento
+
+La arquitectura implementa el siguiente flujo:
+
+1. Mininet genera la topología SDN.
+2. Open vSwitch envía los eventos al controlador Ryu.
+3. El controlador monitorea el tráfico de la red.
+4. Cuando la carga supera el umbral configurado mediante un script de python se realizará el autoescalado, luego:
+   - se ejecuta Terraform;
+   - se crea un nuevo servidor web;
+   - HAProxy incorpora automáticamente el nuevo backend.
+5. Cuando la carga disminuye con el script se solicitara que :
+   - Terraform elimina los recursos excedentes;
+   - HAProxy actualiza nuevamente la configuración.
 
 ---
 
-# Requisitos
+## Estado del proyecto
 
-* Linux
-* Python 3
-* Ryu
-* Mininet
-* Open vSwitch
-* Terraform
-* HAProxy
+Este proyecto corresponde a una **prueba de concepto desarrollada con fines académicos**.
+
+La implementación valida el funcionamiento del mecanismo de autoescalado y la integración entre SDN e IaC, pero no constituye una solución orientada a producción ni incluye una evaluación cuantitativa de rendimiento frente a soluciones comerciales.
 
 ---
 
-# Estado del proyecto
+## Trabajo futuro
 
-Este proyecto constituye una **prueba de concepto desarrollada con fines académicos** para validar la integración entre tecnologías SDN e IaC en un escenario de balanceo de carga automatizado.
+Entre las posibles líneas de evolución del proyecto se encuentran:
 
-La implementación verifica el correcto funcionamiento del mecanismo de autoescalado, aunque no incluye una evaluación comparativa de rendimiento frente a soluciones tradicionales ni está orientada a entornos productivos.
-
----
-
-# Trabajo académico asociado
-
-Este repositorio acompaña el Trabajo Final de Especialización titulado:
-
-**"Infraestructura Definida por Software para el Balanceo de Carga Automatizado mediante la Integración de SDN e Infraestructura como Código"**
+- Comparación de rendimiento con balanceadores tradicionales.
+- Incorporación de métricas de QoS.
+- Implementación de las Rutas B y C propuestas en la tesis.
+- Integración completa de la lógica de escalado dentro del controlador SDN.
+- Soporte para múltiples servicios y balanceadores.
 
 ---
 
-# Licencia
+## Autor
 
-Este proyecto se distribuye únicamente con fines académicos y de investigación.
+**Lorena Garcia**
 
-Consulte el archivo `LICENSE` para obtener información sobre los términos de uso.
+Trabajo Final de Especialización.
+
+Universidad Nacional de La Plata
+
+---
+
+
+Este proyecto se distribuye con fines académicos y de investigación.
+
